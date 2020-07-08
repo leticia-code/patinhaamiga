@@ -1,0 +1,31 @@
+RewriteEngine On
+
+# Desabilitando a extensão .php
+RewriteCond %{REQUEST_FILENAME} !-d 
+RewriteCond %{REQUEST_FILENAME}\.php -f 
+RewriteRule ^(.*)$ $1.php
+
+
+
+# Desabilitando a listagem de arquivos do diretório
+Options All -Indexes
+ErrorDocument 403 "Desculpe! acesso nao permitido!
+
+
+#EVITAR ACESSO DIRETO AOS ARQUIVOS QUE FAZEM SELECT NAS PAGINAS PUBLICAS
+<Files ReadIndex.php>
+    Order Deny,Allow
+    Deny from all
+</Files>
+
+<Files Read.php>
+    Order Deny,Allow
+    Deny from all
+</Files>
+
+<Files Config.php>
+    Order Deny,Allow
+    Deny from all
+</Files>
+
+
