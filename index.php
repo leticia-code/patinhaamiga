@@ -253,7 +253,7 @@ ENTRAR/REGISTRAR DIV
 
             <h5>GOSTARIA DE SABER COMO NOS AJUDAR?</h5><br><br>
 
-            <p style="font-size:1.3rem;">Assita o vídeo ao lado e enteda como são feitas as doações.</p><br>
+            <p style="font-size:1.3rem;">Assista o vídeo ao lado e entenda como são feitas as doações.</p><br>
 
 
         </div>

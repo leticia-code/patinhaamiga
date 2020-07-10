@@ -9,7 +9,7 @@ if (!isset($_SERVER['HTTP_REFERER'])) {
 session_start();
 
 $id_pet = $_GET['id'];
-var_dump($id_pet);
+
 
 if(isset($id_pet)){
 

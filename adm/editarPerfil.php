@@ -90,18 +90,6 @@ $RedadosINDEX = $dadosINDEX->getResultado();
 
             </div>
 
-            <div class="form-row">
-                <div class="form-group col-md-12">
-                    <label><span class="text-danger">*</span> Texto sobre a ONG lado direito</label>
-                    <textarea name="sobre_direito" type="text" id="editor-tres" class="form-control" rows="3"><?php
-                                                                                                                if (isset($RedadosINDEX[0]['sobre_direito'])) {
-                                                                                                                    echo $RedadosINDEX[0]['sobre_direito'];
-                                                                                                                }
-                                                                                                                ?>
-                    </textarea>
-                </div>
-
-            </div>
             <p>
                 <span class="text-danger">* </span>Campo obrigatório
             </p>

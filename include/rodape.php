@@ -31,7 +31,7 @@
 <div style="padding:3rem;  background-color:white" class="container">
 <span id="MsgFiquePorDentro"></span>
     <div class="row">
-        <div class="col-sm-6 text-center">
+        <div class="col-sm-5 text-center">
 
             <div style="justify-content:center;" class="row text-center">
                 <a class="a-img-footer" href=""><img class="social-footer-img" src="<?php echo URL . 'assets/img/social/fb_borda.jpg' ?>" alt="FB social" width="65px" height="65px"></a>
@@ -44,13 +44,13 @@
         </div>
 
 
-        <div class="col-sm-6 text-center">
+        <div class="col-sm-7 text-center">
             <p style="font-size:1.5rem;">Contate o patinha</p>
 
             <div class="d-flex">
                 <div style="width:33,3%; padding:5px;" class="text-center">
                     <p>Endereço</p>
-                    <p>Rua dos bobos, Nº0 Jardim boa nova, CEP 13158-520</p>
+                    <p>Rua das Esmeraldas, n° 45 <br> Jardim Santa Luzia CEP 13158-520</p>
                 </div>
 
                 <div style="width:33,3%; padding:5px;" class="text-center">
@@ -60,7 +60,7 @@
 
                 <div style="width:33,3%; padding:5px;" class="text-center">
                     <p>E-mail</p>
-                    <p>ongtal@outlook.com</p>
+                    <p>patinhaamiga@hotmail.com</p>
                 </div>
 
 

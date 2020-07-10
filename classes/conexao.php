@@ -1,6 +1,5 @@
 <?php
 
-
 class conexao 
 {
     public static $host = HOST;

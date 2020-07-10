@@ -1,5 +1,6 @@
 <?php
 
+
 ob_start(); // Limpando buffer de redirecionamento
 
 define('URL', 'http://localhost/patinhamiga/'); //Definindo o endereço

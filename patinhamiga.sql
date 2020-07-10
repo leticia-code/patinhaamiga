@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.5
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Tempo de geração: 08/07/2020 às 15:30
--- Versão do servidor: 5.6.47
--- Versão do PHP: 7.3.6
+-- Host: 127.0.0.1:3306
+-- Generation Time: 10-Jul-2020 às 00:24
+-- Versão do servidor: 5.7.24
+-- versão do PHP: 7.2.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,24 +19,26 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `fernando_patinha`
+-- Database: `patinhamiga`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_admin`
+-- Estrutura da tabela `tbl_admin`
 --
 
-CREATE TABLE `tbl_admin` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `tbl_admin`;
+CREATE TABLE IF NOT EXISTS `tbl_admin` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(120) NOT NULL,
   `email` varchar(220) NOT NULL,
-  `senha` varchar(220) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `senha` varchar(220) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
--- Despejando dados para a tabela `tbl_admin`
+-- Extraindo dados da tabela `tbl_admin`
 --
 
 INSERT INTO `tbl_admin` (`id`, `nome`, `email`, `senha`) VALUES
@@ -45,11 +47,12 @@ INSERT INTO `tbl_admin` (`id`, `nome`, `email`, `senha`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_adocoes`
+-- Estrutura da tabela `tbl_adocoes`
 --
 
-CREATE TABLE `tbl_adocoes` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `tbl_adocoes`;
+CREATE TABLE IF NOT EXISTS `tbl_adocoes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_ong` int(11) NOT NULL,
   `id_pet` int(11) NOT NULL,
   `nome_pet` varchar(220) NOT NULL,
@@ -57,34 +60,26 @@ CREATE TABLE `tbl_adocoes` (
   `cliente_email` varchar(220) NOT NULL,
   `cliente_telefone` varchar(220) NOT NULL,
   `cliente_mensagem` text NOT NULL,
-  `created` datetime NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 
 --
--- Despejando dados para a tabela `tbl_adocoes`
+-- Extraindo dados da tabela `tbl_adocoes`
 --
 
 INSERT INTO `tbl_adocoes` (`id`, `id_ong`, `id_pet`, `nome_pet`, `cliente_nome`, `cliente_email`, `cliente_telefone`, `cliente_mensagem`, `created`) VALUES
-(13, 1, 19, 'Marcio', 'Fernando de Almeida', 'fernandoa.code@gmail.com', '(19) 99501-3653', 'OlÃ¡, tenho interesse!', '2020-07-04 20:16:28'),
-(14, 1, 5, 'Malaquias', 'Fernando de', 'fernandoa.code@gmail.com', '(19) 99501-3653', 'teste1234', '2020-07-05 16:42:54'),
-(15, 1, 7, 'Soneca', 'Fernando de', 'nando-de-almeida@hotmail.com', '(19) 99501-3653', 'testando', '2020-07-05 23:27:31'),
-(16, 1, 7, 'Soneca', 'Fernando', 'nando-de-almeida@hotmail.com', '(19) 99501-3653', 'teste', '2020-07-05 23:50:19'),
-(17, 1, 5, 'Malaquias', 'Leticia', 'fernandoa.code@gmail.com', '(19) 99501-3653', 'teste', '2020-07-05 23:52:16'),
-(18, 1, 7, 'Soneca', 'Leticia', 'fernandoa.code@gmail.com', '(19) 99501-3653', 'blablabalbeblelbel', '2020-07-05 23:52:51'),
-(19, 1, 7, 'Soneca', 'JOAO', 'lojavirtual12354@gmail.com', '(19) 99501-3653', 'testete', '2020-07-05 23:53:02'),
-(20, 1, 7, 'Soneca', 'Fernando de', 'nando-de-almeida@hotmail.com', '(19) 99501-3653', '1211221', '2020-07-05 23:53:10'),
-(21, 1, 7, 'Soneca', 'Leticia', 'fernandoa.code@gmail.com', '(12) 11221-1212', '2121', '2020-07-05 23:54:01'),
-(22, 1, 7, 'Soneca', 'Fernando', 'testebla@gmail.com', '(19) 99501-3653', 'teste hospedado', '2020-07-07 22:40:10'),
-(23, 2, 20, 'Thor', 'LetÃ­cia', 'leticiacardoso31@hotmail.com', '(19) 98415-5014', 'teste', '2020-07-08 12:49:02');
+(24, 4, 38, 'PaÃ§oca', 'LetÃ­cia ', 'leticiacardoso31@hotmail.com', '(19) 93845-2176', 'Desejo adotar o paÃ§oca, tenho boas condiÃ§Ãµes de manter o animal e jÃ¡ adotei outro gato.', '2020-07-09 13:15:21');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_doacoes`
+-- Estrutura da tabela `tbl_doacoes`
 --
 
-CREATE TABLE `tbl_doacoes` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `tbl_doacoes`;
+CREATE TABLE IF NOT EXISTS `tbl_doacoes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_ong` int(11) NOT NULL,
   `doa_alimento` varchar(30) NOT NULL,
   `doa_medicamento` varchar(30) NOT NULL,
@@ -93,62 +88,53 @@ CREATE TABLE `tbl_doacoes` (
   `doa_email` varchar(120) NOT NULL,
   `doa_telefone` varchar(120) NOT NULL,
   `doa_mensagem` text NOT NULL,
-  `created` datetime NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Despejando dados para a tabela `tbl_doacoes`
---
-
-INSERT INTO `tbl_doacoes` (`id`, `id_ong`, `doa_alimento`, `doa_medicamento`, `doa_higiene`, `doa_nome`, `doa_email`, `doa_telefone`, `doa_mensagem`, `created`) VALUES
-(1, 1, 'Sim', 'Sim', 'Sim', 'Fernando de Almeida', 'fernandoa.code@gmail.com', '(19) 99501-3653', 'OlÃ¡, testando doaÃ§Ã£o!', '2020-07-04 20:19:07'),
-(2, 1, 'Sim', 'Nao', 'Sim', 'Fernando de', 'nando-de-almeida@hotmail.com', '(19) 99501-3653', '12345', '2020-07-05 16:43:52'),
-(3, 1, 'Sim', 'Sim', 'Nao', 'Fernando', 'nando-de-almeida@hotmail.com', '(19) 99501-3653', 'teste', '2020-07-05 23:48:37'),
-(4, 1, 'Sim', 'Sim', 'Sim', 'Leticia', 'fernandoa.code@gmail.com', '(19) 99501-3653', 'teste 2', '2020-07-05 23:49:02'),
-(5, 1, 'Sim', 'Sim', 'Sim', 'Jose', 'testebla@gmail.com', '(19) 99501-3653', 'teste', '2020-07-05 23:49:22'),
-(6, 1, 'Sim', 'Sim', 'Sim', 'fernando', 'fernandoa.code@gmail.com', '(19) 99501-3653', 'teste hospedado', '2020-07-07 22:39:56');
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_index`
+-- Estrutura da tabela `tbl_index`
 --
 
-CREATE TABLE `tbl_index` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `tbl_index`;
+CREATE TABLE IF NOT EXISTS `tbl_index` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `video_principal` varchar(220) NOT NULL,
   `titulo_missao` varchar(220) NOT NULL,
   `missao` text NOT NULL,
   `video_sec` varchar(220) NOT NULL,
   `sobre_esquerdo` text NOT NULL,
-  `sobre_direito` text NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
--- Despejando dados para a tabela `tbl_index`
+-- Extraindo dados da tabela `tbl_index`
 --
 
-INSERT INTO `tbl_index` (`id`, `video_principal`, `titulo_missao`, `missao`, `video_sec`, `sobre_esquerdo`, `sobre_direito`) VALUES
-(1, 'https://www.youtube.com/embed/QiCpsIS90F0', 'O seu novo amiguinho de 4 patas estÃ¡ aqui!', '<p>NÃ³s da patinha amiga temos a importante missÃ£o de juntamente com as ONG\'s, conseguirmos uma melhor condiÃ§Ã£o de vida e tudo o que um animalzinho carente necessita, atravÃ©s de adoÃ§Ãµes e doaÃ§Ãµes, feitas de uma maneira rÃ¡pida, simples, segura e moderna por um meio digital.</p>                    ', 'https://www.youtube.com/embed/QiCpsIS90F0', '<p>Por meio deste projeto, buscamos alcanÃ§ar as pessoas que possam colaborar com a retirada de animais do estado de vulnerabilidade nas ruas, tendo tambÃ©m a oportunidade de ajudar as ONG\'s responsÃ¡veis pelos devidos cuidados. Para que se recuperem e possam voltar a ter uma vida normal encontrando alguÃ©m disposto a enche-los com todo o amor e carinho que merecem. AtravÃ©s de nossa plataforma as pessoas poderÃ£o</p>                    ', '<p>doar os animais que infelizmente nÃ£o possuem condiÃ§Ãµes de cuidar ou mesmo que fora encontrado em situaÃ§Ã£o de rua, adotar e doar monetariamente em instituiÃ§Ãµes que se cadastrarem previamente em nosso sistema, depois de passarem por uma rigorosa anÃ¡lise, afim de analiser realmente se essa instituiÃ§Ã£o erÃ¡ fazer o que hÃ¡ de melhor<br>para os animais.</p>                    ');
+INSERT INTO `tbl_index` (`id`, `video_principal`, `titulo_missao`, `missao`, `video_sec`, `sobre_esquerdo`) VALUES
+(1, 'https://www.youtube.com/embed/QiCpsIS90F0', 'O seu novo amiguinho de 4 patas estÃ¡ aqui!', '<p>NÃ³s da patinha amiga temos a importante missÃ£o de juntamente com as ONG\'s, conseguirmos uma melhor condiÃ§Ã£o de vida e tudo o que um animalzinho carente necessita, atravÃ©s de adoÃ§Ãµes e doaÃ§Ãµes, feitas de uma maneira rÃ¡pida, simples, segura e moderna por um meio digital.</p>                    ', 'https://www.youtube.com/embed/EMy3J0z2fuQ', '<p>Por meio deste projeto, buscamos alcanÃ§ar as pessoas que possam colaborar com a retirada de animais do estado de vulnerabilidade nas ruas, tendo tambÃ©m a oportunidade de ajudar as ONG\'s responsÃ¡veis pelos devidos cuidados. Para que se recuperem e possam voltar a ter uma vida normal encontrando alguÃ©m disposto a enche-los com todo o amor e carinho que merecem. AtravÃ©s de nossa plataforma as pessoas poderÃ£o doar os animais que infelizmente nÃ£o possuem condiÃ§Ãµes de cuidar ou mesmo que fora encontrado em situaÃ§Ã£o de rua, adotar e doar monetariamente em instituiÃ§Ãµes que se cadastrarem previamente em nosso sistema, depois de passarem por uma rigorosa anÃ¡lise, a fim de analisar realmente se essa instituiÃ§Ã£o irÃ¡ fazer o que hÃ¡ de melhor<br>para os animais.</p>                    ');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_news`
+-- Estrutura da tabela `tbl_news`
 --
 
-CREATE TABLE `tbl_news` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `tbl_news`;
+CREATE TABLE IF NOT EXISTS `tbl_news` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `news_email` varchar(120) NOT NULL,
-  `created` datetime NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
--- Despejando dados para a tabela `tbl_news`
+-- Extraindo dados da tabela `tbl_news`
 --
 
 INSERT INTO `tbl_news` (`id`, `news_email`, `created`) VALUES
-(1, 'teste@teste.com.br', '2020-07-04 19:33:11'),
 (2, 'teste2@dois.omc.br', '2020-07-04 19:34:07'),
 (3, 'tres@tres', '2020-07-04 19:34:50'),
 (4, '1212@2121', '2020-07-04 19:35:06');
@@ -156,11 +142,12 @@ INSERT INTO `tbl_news` (`id`, `news_email`, `created`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_ongs`
+-- Estrutura da tabela `tbl_ongs`
 --
 
-CREATE TABLE `tbl_ongs` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `tbl_ongs`;
+CREATE TABLE IF NOT EXISTS `tbl_ongs` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `descricao` text,
   `cnpj` varchar(30) NOT NULL,
   `nome_fantasia` varchar(120) NOT NULL,
@@ -184,169 +171,98 @@ CREATE TABLE `tbl_ongs` (
   `imagem` varchar(220) DEFAULT NULL,
   `instagram` varchar(220) DEFAULT NULL,
   `facebook` varchar(220) DEFAULT NULL,
-  `created` datetime NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
--- Despejando dados para a tabela `tbl_ongs`
+-- Extraindo dados da tabela `tbl_ongs`
 --
 
 INSERT INTO `tbl_ongs` (`id`, `descricao`, `cnpj`, `nome_fantasia`, `nome`, `telefone`, `email`, `senha`, `endereco`, `numero`, `complemento`, `estado`, `cidade`, `cep`, `alimentacao`, `medicacao`, `higiene`, `razao_social`, `banco`, `agencia`, `conta`, `imagem`, `instagram`, `facebook`, `created`) VALUES
-(1, '<p><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>                    ', '00.000.000/0000-00', 'ONG E-PET', 'Fernando de Almeida PrÃ©como', '(19) 99501-3653', 'fernandoa.code@gmail.com', '$2y$10$Rn42hKdoMhP0C.tZymz7RuD3sk6n1kqvn81Kkqn2IfgMkYLNscfAG', 'Rua Testando do Testando', '4123', '', 'SP', 'Nova Odessa', '11111-111', '035%', '070%', '100%', 'ONG E-PET', 'Caixa econÃ´mica Federal', '000000-03', '2328844', 'WhatsApp Image 2020-06-27 at 8.33.22 PM.jpeg', 'instagram.com', 'facebook.com', '2020-06-29 14:54:04'),
-(2, '<p>Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>', '85.266.660/0001-71', 'Con Animal ', 'LetÃ­cia de Oliveira Cardoso', '(19) 98415-5014', 'leticiacardoso31@hotmail.com', '$2y$10$B7JUNG12tqCZWeg9wzOIx.ksjQ5vxG9gV8CQKAUUf2k1ubdXEr6Zq', 'Cuba', '357', '', 'SÃ£o Paulo', 'HortolÃ¢ndia ', '13186-380', '60%', '30%', '20%', 'con animal', 'ItaÃº ', '0058', '0841894-2', 'Con_animal_5e0cb1e96ecc7.jpg', 'instagram.com/conanimalong', 'facebook.com/conanimalong', '2020-07-07 23:00:31');
+(4, '<p>PROJETO MI &amp; AU - AssociaÃ§Ã£o de Defesa Animal - Ã© uma associaÃ§Ã£o sem fins lucrativos que atua em Guarulhos-SP, que proporciona o encontro e a cooperaÃ§Ã£o entre pessoas que acreditam na existÃªncia de relaÃ§Ãµes harmoniosas entre pessoas, animais e o meio ambiente. Para isso, trabalha com a doaÃ§Ã£o de animais esterilizados e com a educaÃ§Ã£o sobre posse e guarda responsÃ¡vel, alÃ©m de defender a esterilizaÃ§Ã£o (castraÃ§Ã£o) como forma de controle populacional e promoÃ§Ã£o do bem estar dos animais.</p>', '35.893.649/0001-63', 'PROJETO MI & AU', 'Roberto', '(19) 99102-0602', 'ongmieau@gmail.com', '$2y$10$Ji5UTSU4EgN3.S49KSGfIOPnXsuAjdWXSXjcPMSRbFsl36O1/Sr2O', 'JoÃ£o da Costa', '752', '', 'SÃ£o Paulo', 'HortolÃ¢ndia', '13185-255', '30%', '70%', '50%', 'Mi Au Amigo dos Animais', 'Bradesco', '5245', '0646100', 'unnamed.png', 'ongmiau', 'projetomiau', '2020-07-09 12:47:12'),
+(5, '<p>A Ong Super Vira Lata Ã© uma associaÃ§Ã£o civil, nÃ£o governamental, com carÃ¡ter humanitÃ¡rio de proteÃ§Ã£o e bem-estar dos animais, sem fins lucrativos ou econÃ´micos.<br>Atualmente abriga mais de 1000 animais resgatados.</p>                    ', '22.315.008/0001-80', 'Super Vira Lata', 'Enzo', '(19) 99696-6247', 'amordebichoo@outlook.com', '$2y$10$tLNMIaFbfhG34okhXAVrQ.j7mVJ5q7enrrT3yW0FkE6ZER/QUOnhq', 'Rua Bento de Arruda Camargo ', '360 ', '', 'SÃ£o Paulo', 'Campinas', '13088-650', '50%', '65%', '45%', 'Super Vira Lata', 'Bradesco', '3798', '52615226', 'logo.jpg', 'superviralata', 'fb.com/ongsuperviralata', '2020-07-09 16:50:37'),
+(6, '<p>Criada em 2018, por pessoas que amam animais e nÃ£o suporta ver eles em situaÃ§Ã£o de rua. Foi criada a Movimenta CÃ£o, com o intuito de ajudar animais de rua principalmente, para que eles tenham amor, carinho e cuidado por pessoas que realmente se importam com eles.</p>', '18.138.679/0001-45', 'Movimenta cÃ£o', 'Willian', '(19) 98805-3349', 'williamzenf5@gmail.com', '$2y$10$WoMxwdv9NY.CLDJzjivqCuxCA/WDjPbm/Mo082wVtzQ/ZST9GlGfO', 'Rua Camilo de Camargo', '710', 'Casa', 'SÃ£o Paulo', 'HortolÃ¢ndia', '13185-678', '70%', '75%', '60%', 'EsperanÃ§a', 'Inter', '0001-9', '639012-6', 'images.jpg', 'Instragam.com/movicao', 'Facebook.com/movi.cao', '2020-07-09 17:13:33'),
+(3, '<p>Em 2015 se tornou a instituiÃ§Ã£o que mais ajuda animais no paÃ­s, ao se tornar uma â€œONG mÃ£eâ€ que ampara mais de 450 abrigos cadastrados em nÃ­vel nacional, que sÃ£o auxiliados em um sistema de rodÃ­zio com raÃ§Ã£o, medicamentos, vacinas, atendimento veterinÃ¡rio, eventos de adoÃ§Ã£o e projetos de conscientizaÃ§Ã£o. Os parceiros da instituiÃ§Ã£o auxiliam diretamente e mensalmente cerca de 10 mil animais. SÃ£o nove anos de trabalho, realizaÃ§Ãµes e grandes conquistas, e Ã© empreendendo socialmente que a <strong>AMPARA</strong> atua de forma preventiva com seus trÃªs principais pilares: adoÃ§Ã£o, castraÃ§Ã£o e, principalmente, a conscientizaÃ§Ã£o, atravÃ©s de projetos educativos voltados para o pÃºblico infantil e adulto.</p>                                        ', '79.272.896/0001-18', 'Ampara Animal', 'Anne S. Santos', '(19) 99167-5041', 'amparaanimal@gmail.com', '$2y$10$lfznh1j9/12uaq2jxwIyj.nPA9sV3F6stK1tR3fT3L9JrnIa8/X7a', 'Rua das Flores Coloridas ', '461', '', 'Sao Paulo', 'JundiaÃ­', '18245-044', '55%', '58%', '20%', 'Ampara Animal ONG de ProteÃ§Ã£o Animal', 'Bradesco', '2869', '15015594', 'AMPARA_Animal-logo.jpg', 'instagram.com/amparaanimal', 'facebook.com/amparanimal/', '2020-07-09 00:10:54'),
+(7, '<p>Somos um grupo de voluntÃ¡rios na luta para resgatar, tratar e doar gatos das ruas. Nossa especialidade Ã© o resgate de gatos, pois somos amantes dos felinos ronronantes, e temos anos de experiÃªncia com gatos resgatados.</p>', '94.627.118/0001-98', 'Adote um Ronrom', 'Carlos', '(19) 99455-4436', 'adoteumronromm@outlook.com', '$2y$10$TdhnmtYv65wt1yN664Qk4.a3a9/fAecHdRlce2pT5RlvAKmQyf4X2', 'Rua Francisco Humberto Zuppi', '810 ', '', 'SÃ£o Paulo', 'Campinas', '13083-350', '45%', '20%', '55%', 'Adote um Ronrom', 'Banco do Brasil', '5289', '63257194', 'logo2.png', 'adoteumronrom', 'fb.com/ongadoteumronrom', '2020-07-09 17:24:28');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_pets`
+-- Estrutura da tabela `tbl_pets`
 --
 
-CREATE TABLE `tbl_pets` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `tbl_pets`;
+CREATE TABLE IF NOT EXISTS `tbl_pets` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_ong` int(11) NOT NULL,
   `id_porte` int(11) NOT NULL,
   `nome_pet` varchar(220) NOT NULL,
   `sexo` varchar(220) NOT NULL,
-  `imagem` varchar(220) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `imagem` varchar(220) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=62 DEFAULT CHARSET=latin1;
 
 --
--- Despejando dados para a tabela `tbl_pets`
+-- Extraindo dados da tabela `tbl_pets`
 --
 
 INSERT INTO `tbl_pets` (`id`, `id_ong`, `id_porte`, `nome_pet`, `sexo`, `imagem`) VALUES
-(7, 1, 1, 'Soneca', 'Macho', 'soneca.jpg'),
-(5, 1, 3, 'Malaquias', 'Macho', 'mala.jpg'),
-(19, 1, 2, 'Marcio', 'Macho', '2.jpg'),
-(6, 1, 1, 'Queen', 'FÃªmea', 'queen.jpg'),
-(20, 2, 3, 'Thor', 'Macho', 'retrato-de-cachorro-boxer-fofo_124437-691.jpg'),
-(21, 2, 2, 'Paco', 'Macho', 'thumb-1920-49327.jpg'),
-(22, 2, 1, 'Lilith', 'FÃªmea', '1093-gatos-pretos-sao-animais-fascinantes-co-articles_media_mobile-4.jpg'),
-(23, 2, 1, 'Belinha', 'FÃªmea', 'shitzy.jpg');
+(34, 4, 3, 'Billy', 'Macho', 'adotar-cachorro-rua-quais-os-cuidados.jpg'),
+(40, 5, 2, 'Milk', 'Macho', '5cdeac3b1d442.jpg'),
+(39, 5, 2, 'Ruivo', 'Macho', '5cdeacf192db8.jpg'),
+(32, 4, 2, 'Fred', 'Macho', '5-coisas-que-fazem-seu-cachorro-viralata-feliz.jpg'),
+(33, 4, 2, 'Luke', 'Macho', 'adoÃ§Ã£o-de-cachorro-filhote.jpg'),
+(24, 3, 2, 'SebastiÃ£o', 'Masculino', 'SebastiÃ£o.jpeg'),
+(30, 3, 1, 'Juliet', 'Feminino', 'WhatsApp Image 2020-06-26 at 11.36.45 PM.jpeg'),
+(26, 3, 2, 'Thor', 'Masculino', 'Thor.jpg'),
+(27, 3, 1, 'Mia', 'Feminino', 'WhatsApp Image 2020-06-26 at 11.36.47 PM.jpeg'),
+(29, 3, 1, 'Caramelo', 'Masculino', 'Caramelo.jpeg'),
+(31, 3, 2, 'Layla', 'Feminino', 'brinquedos-para-cachorro-760x450.jpg'),
+(35, 4, 3, 'Spike', 'Macho', 'c70f1bc999d70c0864103ed3862f7464.jpg'),
+(36, 4, 1, 'Mel', 'FÃªmea', 'cachorro-para-adocao.jpg'),
+(37, 4, 1, 'Izzy', 'FÃªmea', 'Google-Gato-2.jpg'),
+(38, 4, 1, 'PaÃ§oca', 'Macho', 'whatsapp-image-2020-03-30-at-15.14.20.jpeg'),
+(41, 5, 2, 'Bombom', 'FÃªmea', '5ccae25db2c3c.jpg'),
+(42, 5, 2, 'Amarelo', 'Macho', '5ccae14dbd3aa.jpg'),
+(43, 5, 2, 'Florzinha', 'FÃªmea', '95202158_3231025443588333_1586948501286158336_o.jpg'),
+(44, 5, 2, 'Pitta', 'FÃªmea', '54200943_2394263087264577_7146734754870591488_o.jpg'),
+(45, 5, 2, 'Aladin', 'Macho', '54213608_2391554924202060_3703983979368546304_o.jpg'),
+(46, 5, 2, 'Liz', 'FÃªmea', '53861055_2391140974243455_5785959355945844736_o.jpg'),
+(55, 6, 2, 'Caramelo', 'Masculino', 'images-3.jpg'),
+(48, 6, 1, 'Nino', 'Masculino', 'images (22).jpeg'),
+(49, 7, 1, 'Emma', 'FÃªmea', '53528469_2388872047803681_8138437712764993536_o.jpg'),
+(50, 7, 1, 'Bigode', 'Macho', '53570253_2388866134470939_4300827160400101376_o.jpg'),
+(51, 7, 1, 'Malhada', 'FÃªmea', '18301649_1563052800385614_857594249724768830_n.jpg'),
+(52, 7, 1, 'Panqueca', 'FÃªmea', '54278733_2388878601136359_5828905000226521088_o.jpg'),
+(53, 7, 1, 'Eva', 'FÃªmea', '54407586_2388874124470140_7851808092399337472_o.jpg'),
+(54, 7, 1, 'Tino', 'Macho', '16178512_1453255064698722_7039433251686245743_o.jpg'),
+(57, 6, 1, 'Mel', 'Feminino', 'images-2.jpg'),
+(58, 6, 1, 'Zeus', 'Masculino', '9k=.jpg'),
+(59, 6, 3, 'Miguel', 'Masculino', 'images-1.jpg'),
+(61, 6, 1, 'Carlos', 'Masculino', 'images-4.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `tbl_porte`
+-- Estrutura da tabela `tbl_porte`
 --
 
-CREATE TABLE `tbl_porte` (
-  `id_porte_id` int(11) NOT NULL,
-  `nome_porte` varchar(120) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+DROP TABLE IF EXISTS `tbl_porte`;
+CREATE TABLE IF NOT EXISTS `tbl_porte` (
+  `id_porte_id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome_porte` varchar(120) NOT NULL,
+  PRIMARY KEY (`id_porte_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
--- Despejando dados para a tabela `tbl_porte`
+-- Extraindo dados da tabela `tbl_porte`
 --
 
 INSERT INTO `tbl_porte` (`id_porte_id`, `nome_porte`) VALUES
 (1, 'Pequeno'),
 (2, 'MÃ©dio'),
 (3, 'Grande');
-
---
--- Índices de tabelas apagadas
---
-
---
--- Índices de tabela `tbl_admin`
---
-ALTER TABLE `tbl_admin`
-  ADD PRIMARY KEY (`id`);
-
---
--- Índices de tabela `tbl_adocoes`
---
-ALTER TABLE `tbl_adocoes`
-  ADD PRIMARY KEY (`id`);
-
---
--- Índices de tabela `tbl_doacoes`
---
-ALTER TABLE `tbl_doacoes`
-  ADD PRIMARY KEY (`id`);
-
---
--- Índices de tabela `tbl_index`
---
-ALTER TABLE `tbl_index`
-  ADD PRIMARY KEY (`id`);
-
---
--- Índices de tabela `tbl_news`
---
-ALTER TABLE `tbl_news`
-  ADD PRIMARY KEY (`id`);
-
---
--- Índices de tabela `tbl_ongs`
---
-ALTER TABLE `tbl_ongs`
-  ADD PRIMARY KEY (`id`);
-
---
--- Índices de tabela `tbl_pets`
---
-ALTER TABLE `tbl_pets`
-  ADD PRIMARY KEY (`id`);
-
---
--- Índices de tabela `tbl_porte`
---
-ALTER TABLE `tbl_porte`
-  ADD PRIMARY KEY (`id_porte_id`);
-
---
--- AUTO_INCREMENT de tabelas apagadas
---
-
---
--- AUTO_INCREMENT de tabela `tbl_admin`
---
-ALTER TABLE `tbl_admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT de tabela `tbl_adocoes`
---
-ALTER TABLE `tbl_adocoes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
-
---
--- AUTO_INCREMENT de tabela `tbl_doacoes`
---
-ALTER TABLE `tbl_doacoes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT de tabela `tbl_index`
---
-ALTER TABLE `tbl_index`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT de tabela `tbl_news`
---
-ALTER TABLE `tbl_news`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT de tabela `tbl_ongs`
---
-ALTER TABLE `tbl_ongs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT de tabela `tbl_pets`
---
-ALTER TABLE `tbl_pets`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
-
---
--- AUTO_INCREMENT de tabela `tbl_porte`
---
-ALTER TABLE `tbl_porte`
-  MODIFY `id_porte_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -3,12 +3,12 @@ include_once('Config.php');
 
 include_once('include/cabecalho.php');
 
-include_once('include/menu.php');
+include_once('include/menu.php');   
 
 include_once('classes/ReadIndex.php');
 
 $dadosINDEX = new ReadIndex();
-$dadosINDEX->fullRead("SELECT sobre_esquerdo, sobre_direito FROM tbl_index");
+$dadosINDEX->fullRead("SELECT sobre_esquerdo FROM tbl_index");
 $redadosINDEX = $dadosINDEX->getResultado();
 ?>
 
@@ -16,20 +16,11 @@ $redadosINDEX = $dadosINDEX->getResultado();
     <img src="<?php echo URL . 'assets/img/icons/logo_quem_somos.png' ?>" class="img-fluid" alt="Patinha Amiga">
 </div>
 
-<div style="background-color:white; padding:2rem;" class="container">
-    <div class="row">
-
-        <div class="col-sm-6">
-            <p style="text-align: justify;"><?php echo $redadosINDEX[0]['sobre_esquerdo'] ?></p>
-        </div>
-
-        <div class="col-sm-6">
-            <p style="text-align: justify;"><?php echo $redadosINDEX[0]['sobre_direito'] ?></p>
-
-        </div>
-
-
+<div style="background-color:white; padding:2rem; text-align: center;" class="container">
+    <div class="row row-sobre">
+        <p ><?php echo $redadosINDEX[0]['sobre_esquerdo']?></p>
     </div>
+
 </div>
 
 <div style="background-color:white; padding:1.5rem;" class="container text-center">

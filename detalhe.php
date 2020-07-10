@@ -57,7 +57,7 @@ if ($id_ong == $ResultabuscaID[0]['id']) { //VERIFICANDO SE O ID VINDO NA URL EX
             </div>
 
             <div style="background-color:white;" class="col-md-8 text-center">
-                <p class="p-sobre-ong">Um poquinho da <br>nossa história</p>
+                <p class="p-sobre-ong">Um pouquinho da <br>nossa história</p>
                 <div class="row row-justify-ong">
                     <?php if ($ResultabuscaID[0]['descricao'] == null) {
 
